@@ -9,6 +9,8 @@
 
 ## ここがポイント！
 - docsフォルダをつくり、HTMLとか入れ、Settingから指定でGitHubPagesやってるよ！
+- `elm make src/main.elm --optimize --output=dist/script.js`ってしてやってるのでjsでだして、HTMLでよんでるよ（HTML参照）
+- でたjsを`elm-minify`でさらに圧縮しているよ
 
 ## いま
 入力された文字をぐぐるボタンがあるのみの存在です。さすがに無駄すぎる
