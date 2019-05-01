@@ -12,16 +12,18 @@ main =
         ,   view = view
         }
 
+-- 【view】から受け取る値の型定義
 type Msg =
     Input String
 
+-- 【model】の内容の型(エイリアス)定義
 type alias Model =
     {   input : String
     ,   output : List String
     ,   link : String
     }
 
-
+-- 【model】の定義(初期値も)
 init : Model
 init = 
     {   input = ""
@@ -29,7 +31,7 @@ init =
     ,   link = ""
     }
 
-
+-- 【update】の定義
 update : Msg -> Model -> Model
 update msg model =
     case msg of
@@ -44,20 +46,23 @@ update msg model =
 -- createResult : String -> 
 -- createResult jisho msg  =
 
+-- 入力値と文字列足し算してぐぐるリンク作成する関数定義
 createLink : String -> String
 createLink input = 
     "https://www.google.com/search?q=" ++ input
 
 
-
+-- 【view】の定義
 view : Model -> Html Msg
 view model =
     div [ id "wrap" ]
         [ section [ id "textarea" ]
             [ h1 [ id "nyuryoku" ]
-                [ input [ id "input", type_ "text", onInput Input, value model.input ]
+                -- 入力されればInputで【update】に伝える
+                [ input [ id "input", type_ "text", onInput Input ]
                     []
                 ]
+            -- ぐぐるリンクは【model】から参照
             , a [ id "guguru", href model.link ]
                 [ text "ぐぐる" ]
             ]
