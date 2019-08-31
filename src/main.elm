@@ -38,13 +38,13 @@ update msg model =
         Input input ->
             { model
                 | input = input
-                -- , output = createResult msg
+                -- , output = createResult jisho input
                 , link = createLink input
             }
 
 
 -- createResult : String -> 
--- createResult jisho msg  =
+-- createResult jisho input =
 
 -- 入力値と文字列足し算してぐぐるリンク作成する関数定義
 createLink : String -> String
